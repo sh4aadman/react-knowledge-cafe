@@ -9,14 +9,16 @@ const Blogs = () => {
 
         fetch('blogs.json')
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => setBlogs(data))
 
     } , [])
 
     return (
-        <div>
+        <section className="w-2/3">
             
-        </div>
+            <h3>Blogs: { blogs.length }</h3>
+
+        </section>
     );
 };
 
