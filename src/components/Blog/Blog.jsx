@@ -5,7 +5,7 @@ import { FaBookmark } from 'react-icons/fa';
 
 const Blog = ({ blog, handleAddToBookmarks, handleMarkasRead }) => {
 
-    const { title, cover, author, author_img, posted_date, reading_time, hashtags } = blog
+    const { id, title, cover, author, author_img, posted_date, reading_time, hashtags } = blog
 
     // const [bookmarkColor, setBookmarkColor] = useState(false)
 
@@ -44,7 +44,7 @@ const Blog = ({ blog, handleAddToBookmarks, handleMarkasRead }) => {
             </section>
 
             <section>
-                <button onClick={() => handleMarkasRead(reading_time)} className='text-[#6047EC] text-xl font-semibold mt-5 mb-8 underline'>Mark as Read</button>
+                <button onClick={() => handleMarkasRead(id, reading_time)} className='text-[#6047EC] text-xl font-semibold mt-5 mb-8 underline'>Mark as Read</button>
             </section>
 
             <hr className='w-3/4 mx-auto'/>
