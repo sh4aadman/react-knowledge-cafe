@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { FaBookmark } from 'react-icons/fa';
 
 
-const Blog = ({ blog, handleAddToBookmarks }) => {
+const Blog = ({ blog, handleAddToBookmarks, handleMarkasRead }) => {
 
     const { title, cover, author, author_img, posted_date, reading_time, hashtags } = blog
 
@@ -37,10 +37,14 @@ const Blog = ({ blog, handleAddToBookmarks }) => {
             
             <h2 className='text-4xl font-bold mt-4'>{title}</h2>
             
-            <section className='flex gap-4 text-xl font-medium text-[#11111199] mt-4 mb-8'>
+            <section className='flex gap-4 text-xl font-medium text-[#11111199] mt-4'>
                 {
                     hashtags.map((hash, idx) => <h5 key={idx}>#{hash}</h5>)
                 }
+            </section>
+
+            <section>
+                <button onClick={() => handleMarkasRead(reading_time)} className='text-[#6047EC] text-xl font-semibold mt-5 mb-8 underline'>Mark as Read</button>
             </section>
 
             <hr className='w-3/4 mx-auto'/>
@@ -52,7 +56,8 @@ const Blog = ({ blog, handleAddToBookmarks }) => {
 Blog.propTypes = {
 
     blog: PropTypes.object,
-    handleAddToBookmarks: PropTypes.func
+    handleAddToBookmarks: PropTypes.func,
+    handleMarkasRead: PropTypes.func
 
 }
 
